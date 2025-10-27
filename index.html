@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Danni & Lestari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: #fffaf8; color: #333; line-height: 1.6; }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #fcd5ce, #fff);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    header h1 { font-size: 3em; margin-bottom: 10px; color: #d35d6e; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+    header p { font-size: 1.2em; color: #555; }
+
+    /* Section utama */
+    section { padding: 60px 20px; text-align: center; position: relative; }
+    .photo {
+      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+      border: 5px solid #f4b6b6; box-shadow: 0 8px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;
+    }
+    .photo:hover { transform: scale(1.05); }
+    .names { font-size: 2em; margin: 20px 0 10px; font-weight: 600; color: #d35d6e; }
+    .details p { font-size: 1.1em; color: #555; margin: 6px 0; }
+
+    /* Tombol lokasi */
+    .location-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #d35d6e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .location-btn:hover { background: #ff7b85; transform: translateY(-2px); }
+
+    /* RSVP */
+    .rsvp {
+      background: #fff0f0; padding: 60px 20px; border-top: 2px solid #f4b6b6;
+    }
+    .rsvp h2 { font-size: 2em; margin-bottom: 20px; color: #d35d6e; }
+    form { max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
+    input, textarea, button {
+      padding: 15px; font-size: 1em; border-radius: 8px; border: 1px solid #e0b0b0; transition: all 0.3s ease;
+    }
+    input:focus, textarea:focus { outline: none; border-color: #d35d6e; box-shadow: 0 0 8px rgba(211,93,110,0.3); }
+    button {
+      background: #d35d6e; color: white; border: none; cursor: pointer; font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button:hover { background: #ff7b85; transform: translateY(-2px); }
+
+    /* Footer */
+    footer { text-align: center; padding: 25px 20px; font-size: 0.9em; background: #ffefef; color: #555; border-top: 1px solid #f4b6b6; }
+
+    /* Animasi */
+    section, .rsvp, footer { animation: fadeInUp 0.8s ease forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* Background bunga lembut */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.ibb.co/3cD0g6q/flower-bg.png') no-repeat center center/cover;
+      opacity: 0.05;
+      z-index: -1;
+    }
+
+    /* Responsif */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2em; }
+      .photo { width: 150px; height: 150px; }
+      .location-btn { padding: 8px 16px; font-size: 0.9em; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Undangan Pernikahan</h1>
+    <p>Dengan penuh rasa syukur kami mengundang Anda ke pernikahan kami</p>
+  </header>
+
+  <section>
+    <img src="https://i.ibb.co/CHZsYwm/wedding-couple.jpg" alt="Pasangan" class="photo" />
+    <div class="names">Danni & Lestari</div>
+    <div class="details">
+      <p>Sabtu, 20 Desember 2025</p>
+      <p>Gedung Serbaguna Purwodadi</p>
+      <p>Pukul 10.00 WIB - selesai</p>
+    </div>
+    <a href="https://goo.gl/maps/your-location-link" target="_blank" class="location-btn">Lihat Lokasi</a>
+  </section>
+
+  <section class="rsvp">
+    <h2>Konfirmasi Kehadiran</h2>
+    <form action="https://formspree.io/f/mblpdlwz" method="POST">
+      <input type="text" name="nama" placeholder="Nama Anda" required>
+      <textarea name="pesan" placeholder="Ucapan untuk pengantin" rows="4" required></textarea>
+      <button type="submit">Kirim Ucapan</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Danni & Lestari | Dibuat dengan ❤️</p>
+  </footer>
+
+</body>
+</html>
