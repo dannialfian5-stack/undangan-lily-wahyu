@@ -1,119 +1,203 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan Danni & Lestari</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan Lily & Wahyu</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background: #fffaf8; color: #333; line-height: 1.6; }
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      overflow-x: hidden;
+    }
 
-    /* Header */
-    header {
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(180deg, #fcd5ce, #fff);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: opacity 0.5s ease;
     }
-    header h1 { font-size: 3em; margin-bottom: 10px; color: #d35d6e; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-    header p { font-size: 1.2em; color: #555; }
 
-    /* Section utama */
-    section { padding: 60px 20px; text-align: center; position: relative; }
-    .photo {
-      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
-      border: 5px solid #f4b6b6; box-shadow: 0 8px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;
+    .cover {
+      background: url('foto_cover.jpg') center/cover no-repeat;
+      color: white;
+      position: relative;
     }
-    .photo:hover { transform: scale(1.05); }
-    .names { font-size: 2em; margin: 20px 0 10px; font-weight: 600; color: #d35d6e; }
-    .details p { font-size: 1.1em; color: #555; margin: 6px 0; }
 
-    /* Tombol lokasi */
-    .location-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #d35d6e;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .location-btn:hover { background: #ff7b85; transform: translateY(-2px); }
-
-    /* RSVP */
-    .rsvp {
-      background: #fff0f0; padding: 60px 20px; border-top: 2px solid #f4b6b6;
-    }
-    .rsvp h2 { font-size: 2em; margin-bottom: 20px; color: #d35d6e; }
-    form { max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
-    input, textarea, button {
-      padding: 15px; font-size: 1em; border-radius: 8px; border: 1px solid #e0b0b0; transition: all 0.3s ease;
-    }
-    input:focus, textarea:focus { outline: none; border-color: #d35d6e; box-shadow: 0 0 8px rgba(211,93,110,0.3); }
-    button {
-      background: #d35d6e; color: white; border: none; cursor: pointer; font-weight: 600;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    button:hover { background: #ff7b85; transform: translateY(-2px); }
-
-    /* Footer */
-    footer { text-align: center; padding: 25px 20px; font-size: 0.9em; background: #ffefef; color: #555; border-top: 1px solid #f4b6b6; }
-
-    /* Animasi */
-    section, .rsvp, footer { animation: fadeInUp 0.8s ease forwards; opacity: 0; transform: translateY(20px); }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-
-    /* Background bunga lembut */
-    body::before {
+    .cover::after {
       content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://i.ibb.co/3cD0g6q/flower-bg.png') no-repeat center center/cover;
-      opacity: 0.05;
-      z-index: -1;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
     }
 
-    /* Responsif */
-    @media (max-width: 600px) {
-      header h1 { font-size: 2.2em; }
-      .photo { width: 150px; height: 150px; }
-      .location-btn { padding: 8px 16px; font-size: 0.9em; }
+    .cover-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background-color: #b97a56;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #a06749;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    img.photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 4px solid #e5b299;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .subtitle {
+      font-family: 'Great Vibes', cursive;
+      color: #b97a56;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .location {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #f5e4d3;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Undangan Pernikahan</h1>
-    <p>Dengan penuh rasa syukur kami mengundang Anda ke pernikahan kami</p>
-  </header>
-
-  <section>
-    <img src="https://i.ibb.co/CHZsYwm/wedding-couple.jpg" alt="Pasangan" class="photo" />
-    <div class="names">Danni & Lestari</div>
-    <div class="details">
-      <p>Sabtu, 20 Desember 2025</p>
-      <p>Gedung Serbaguna Purwodadi</p>
-      <p>Pukul 10.00 WIB - selesai</p>
+  <section class="cover active" id="cover">
+    <div class="cover-content">
+      <h1>Lily & Wahyu</h1>
+      <p>Sabtu, 15 November 2025</p>
+      <button class="btn" onclick="nextSection('mempelai')">Buka Undangan</button>
     </div>
-    <a href="https://goo.gl/maps/your-location-link" target="_blank" class="location-btn">Lihat Lokasi</a>
   </section>
 
-  <section class="rsvp">
-    <h2>Konfirmasi Kehadiran</h2>
-    <form action="https://formspree.io/f/mblpdlwz" method="POST">
-      <input type="text" name="nama" placeholder="Nama Anda" required>
-      <textarea name="pesan" placeholder="Ucapan untuk pengantin" rows="4" required></textarea>
-      <button type="submit">Kirim Ucapan</button>
-    </form>
+  <section class="section" id="mempelai">
+    <h2 class="subtitle">Mempelai</h2>
+    <img src="foto_lily.png" alt="Lily" class="photo">
+    <p><strong>Lily Nur Rahmawati</strong></p>
+    <img src="foto_wahyu.png" alt="Wahyu" class="photo">
+    <p><strong>Wahyu Zaenuri</strong></p>
+    <button class="btn" onclick="nextSection('acara')">Lanjut</button>
+  </section>
+
+  <section class="section" id="acara">
+    <h2 class="subtitle">Acara Pernikahan</h2>
+    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan kami:</p>
+    <p><strong>Sabtu, 15 November 2025</strong></p>
+    <p>Pukul: 09.00 WIB - Selesai</p>
+    <button class="btn" onclick="nextSection('lokasi')">Lanjut</button>
+  </section>
+
+  <section class="section" id="lokasi">
+    <h2 class="subtitle">Lokasi</h2>
+    <p class="location">
+      Unnamed Road, Kepuhrubuh, Lemahputih,<br>
+      Kec. Brati, Kabupaten Grobogan,<br>
+      Jawa Tengah 58183
+    </p>
+    <a href="https://maps.google.com?q=-7.085,-110.900" target="_blank" class="btn">Lihat di Google Maps</a>
+    <button class="btn" onclick="nextSection('hadiah')">Lanjut</button>
+  </section>
+
+  <section class="section" id="hadiah">
+    <h2 class="subtitle">Kado & Hadiah</h2>
+    <p>Doa restu Anda merupakan hadiah yang paling berharga bagi kami. Namun, jika ingin memberikan tanda kasih, dapat dikirim melalui:</p>
+    <div class="location">
+      <p>🏦 Bank Jateng 311 808 1217</p>
+      <p>🏦 BRI 6016 0103 5972 536</p>
+      <p>🏦 BCA 816 527 0220</p>
+      <p>📱 DANA 083 843 244 044</p>
+    </div>
+    <button class="btn" onclick="nextSection('penutup')">Lanjut</button>
+  </section>
+
+  <section class="section" id="penutup">
+    <h2 class="subtitle">Terima Kasih</h2>
+    <p>Terima kasih atas doa dan restu yang diberikan. Semoga kita semua senantiasa diberkahi kebahagiaan dan cinta yang tulus.</p>
+    <p style="margin-top:15px;">Dengan cinta,<br><strong>Lily & Wahyu</strong></p>
   </section>
 
   <footer>
-    <p>© 2025 Danni & Lestari | Dibuat dengan ❤️</p>
+    <p>© 2025 Lily & Wahyu | Dibuat dengan ❤️ oleh keluarga dan sahabat</p>
   </footer>
 
+  <audio id="bgm" src="musik.mp3" autoplay loop></audio>
+
+  <script>
+    function nextSection(nextId) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(nextId).classList.add('active');
+    }
+  </script>
+  <!-- Bagian Form Ucapan -->
+<section id="ucapan" style="background:#fffaf8; padding:40px 20px; text-align:center; font-family:'Poppins', sans-serif;">
+  <h2 style="font-family:'Playfair Display', serif; font-size:24px; margin-bottom:10px; color:#333;">
+    Kirim Ucapan Selamat 💌
+  </h2>
+  <p style="font-size:14px; color:#555; margin-bottom:30px;">
+    Silakan tuliskan doa dan ucapan terbaik untuk kami
+  </p>
+
+  <form action="https://formspree.io/f/mblpdlwz" method="POST" style="max-width:400px; margin:0 auto; text-align:left;">
+    <label for="nama" style="font-size:14px; color:#444;">Nama</label>
+    <input type="text" id="nama" name="nama" required 
+      style="width:100%; padding:10px; margin:8px 0 16px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+
+    <label for="pesan" style="font-size:14px; color:#444;">Ucapan</label>
+    <textarea id="pesan" name="pesan" rows="4" required
+      style="width:100%; padding:10px; margin:8px 0 16px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;"></textarea>
+
+    <button type="submit" 
+      style="background:#3c3b3b; color:#fff; border:none; padding:12px 20px; border-radius:10px; font-size:14px; cursor:pointer; width:100%; transition:0.3s;">
+      Kirim Ucapan
+    </button>
+  </form>
+
+  <p style="margin-top:20px; font-size:13px; color:#888;">Terima kasih atas doa dan ucapannya 💕</p>
+</section>
 </body>
 </html>
