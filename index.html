@@ -14,7 +14,7 @@
     }
 
     section {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -24,10 +24,11 @@
       transition: opacity 0.5s ease;
     }
 
-    /* 🔹 Bagian Cover yang sudah diperbaiki */
+    /* 🔹 COVER (sudah diperbaiki total) */
     .cover {
       position: relative;
-      height: 100vh;
+      min-height: 100vh;
+      height: 100dvh; /* penuh di HP juga */
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -41,12 +42,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 60% center; /* fokus sedikit ke kiri agar wajah keduanya terlihat */
+      object-position: 60% center; /* fokus sedikit ke kiri untuk wajah */
       z-index: 0;
       filter: brightness(70%);
     }
 
-    /* Efek gradasi lembut dari bawah agar teks tetap jelas */
+    /* Efek gradasi lembut di bawah */
     .cover::after {
       content: "";
       position: absolute;
@@ -88,13 +89,8 @@
       background-color: #a06749;
     }
 
-    .section {
-      display: none;
-    }
-
-    .active {
-      display: flex;
-    }
+    .section { display: none; }
+    .active { display: flex; }
 
     img.photo {
       width: 180px;
@@ -198,10 +194,24 @@
       color: #333;
       line-height: 1.6;
     }
+
+    /* 🔸 Fokus tampilan di HP */
+    @media (max-width: 768px) {
+      .cover-bg {
+        object-position: center 25%; /* geser fokus ke tengah atas */
+      }
+      h1 { font-size: 2.2em; }
+      .cover-content p { font-size: 1em; }
+    }
+
+    @supports (height: 100dvh) {
+      .cover { height: 100dvh; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- COVER -->
   <section class="cover active" id="cover">
     <img src="foto_cover.jpg" alt="Lily & Wahyu" class="cover-bg">
     <div class="cover-content">
@@ -211,6 +221,7 @@
     </div>
   </section>
 
+  <!-- MEMPELAI -->
   <section class="section" id="mempelai">
     <h2 class="subtitle">Mempelai</h2>
 
@@ -233,6 +244,7 @@
     <button class="btn" onclick="nextSection('acara')">Lanjut</button>
   </section>
 
+  <!-- ACARA -->
   <section class="section" id="acara">
     <h2 class="subtitle">Acara Pernikahan</h2>
     <p class="text">
@@ -258,6 +270,7 @@
     <button class="btn" onclick="nextSection('lokasi')">Lanjut</button>
   </section>
 
+  <!-- LOKASI -->
   <section class="section" id="lokasi">
     <h2 class="subtitle">Lokasi</h2>
     <p class="location">
@@ -269,6 +282,7 @@
     <button class="btn" onclick="nextSection('hadiah')">Lanjut</button>
   </section>
 
+  <!-- HADIAH -->
   <section class="section" id="hadiah">
     <h2 class="subtitle">Kado & Hadiah</h2>
     <p>Doa restu Anda merupakan hadiah yang paling berharga bagi kami. Namun, jika ingin memberikan tanda kasih, dapat dikirim melalui:</p>
@@ -281,6 +295,7 @@
     <button class="btn" onclick="nextSection('penutup')">Lanjut</button>
   </section>
 
+  <!-- PENUTUP -->
   <section class="section" id="penutup">
     <h2 class="subtitle">Terima Kasih</h2>
     <p>Terima kasih atas doa dan restu yang diberikan. Semoga kita semua senantiasa diberkahi kebahagiaan dan cinta yang tulus.</p>
@@ -300,7 +315,7 @@
     }
   </script>
 
-  <!-- Bagian Form Ucapan -->
+  <!-- UCAPAN -->
   <section id="ucapan" style="background:#fffaf8; padding:40px 20px; text-align:center; font-family:'Poppins', sans-serif;">
     <h2 style="font-family:'Playfair Display', serif; font-size:24px; margin-bottom:10px; color:#333;">
       Kirim Ucapan Selamat 💌
