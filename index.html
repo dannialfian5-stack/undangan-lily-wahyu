@@ -24,7 +24,7 @@
       transition: opacity 0.5s ease;
     }
 
-    /* 🔹 Cover section dengan foto */
+    /* 🔹 Bagian Cover yang sudah diperbaiki */
     .cover {
       position: relative;
       height: 100vh;
@@ -41,12 +41,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 60% center; /* Fokus wajah di desktop */
+      object-position: 60% center; /* fokus sedikit ke kiri agar wajah keduanya terlihat */
       z-index: 0;
       filter: brightness(70%);
     }
 
-    /* 🔹 Efek gradasi bawah agar teks jelas */
+    /* Efek gradasi lembut dari bawah agar teks tetap jelas */
     .cover::after {
       content: "";
       position: absolute;
@@ -198,19 +198,6 @@
       color: #333;
       line-height: 1.6;
     }
-
-    /* 🔸 Tambahan khusus untuk HP */
-    @media (max-width: 768px) {
-      .cover-bg {
-        object-position: center 25%; /* Geser fokus ke tengah atas agar wajah pas */
-      }
-      h1 {
-        font-size: 2.2em;
-      }
-      .cover-content p {
-        font-size: 1em;
-      }
-    }
   </style>
 </head>
 <body>
@@ -224,8 +211,87 @@
     </div>
   </section>
 
-  <!-- sisanya tetap sama seperti versi sebelumnya -->
-  <!-- ... (mempelai, acara, lokasi, hadiah, penutup, footer, ucapan) ... -->
+  <section class="section" id="mempelai">
+    <h2 class="subtitle">Mempelai</h2>
+
+    <div class="couple">
+      <div class="person">
+        <img src="foto_wahyu.png" alt="Wahyu Zaenuri" class="photo">
+        <p class="name"><strong>Wahyu Zaenuri</strong></p>
+        <p class="desc">Putra dari Bapak Rohmat<br>dan Ibu Hartatik Listyorini</p>
+      </div>
+
+      <h3 class="and">&</h3>
+
+      <div class="person">
+        <img src="foto_lily.png" alt="Lily Nur Rahmawati" class="photo">
+        <p class="name"><strong>Lily Nur Rahmawati</strong></p>
+        <p class="desc">Putri dari Bapak Sep Suparman<br>dan Ibu Saputri Agustinah</p>
+      </div>
+    </div>
+
+    <button class="btn" onclick="nextSection('acara')">Lanjut</button>
+  </section>
+
+  <section class="section" id="acara">
+    <h2 class="subtitle">Acara Pernikahan</h2>
+    <p class="text">
+      Dengan memohon rahmat dan ridho Allah SWT,<br>
+      kami bermaksud untuk menyelenggarakan acara pernikahan kami yang penuh kebahagiaan dan berkah.
+    </p>
+
+    <div class="event-details">
+      <p class="date"><strong>Sabtu, 15 November 2025</strong></p>
+      <p class="time">Pukul <strong>08.00 WIB – Selesai</strong></p>
+      <p class="place">
+        Bertempat di kediaman mempelai wanita:<br>
+        <em>Unnamed Road, Kepuhrubuh, Lemahputih,<br>
+        Kec. Brati, Kabupaten Grobogan, Jawa Tengah</em>
+      </p>
+    </div>
+
+    <p class="closing-text">
+      Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i<br>
+      berkenan hadir untuk memberikan doa restu pada hari yang berbahagia ini.
+    </p>
+
+    <button class="btn" onclick="nextSection('lokasi')">Lanjut</button>
+  </section>
+
+  <section class="section" id="lokasi">
+    <h2 class="subtitle">Lokasi</h2>
+    <p class="location">
+      Unnamed Road, Kepuhrubuh, Lemahputih,<br>
+      Kec. Brati, Kabupaten Grobogan,<br>
+      Jawa Tengah 58183
+    </p>
+    <a href="https://maps.app.goo.gl/sg76jAqjj54XN4Wb7?g_st=aw" target="_blank" class="btn">Lihat di Google Maps</a>
+    <button class="btn" onclick="nextSection('hadiah')">Lanjut</button>
+  </section>
+
+  <section class="section" id="hadiah">
+    <h2 class="subtitle">Kado & Hadiah</h2>
+    <p>Doa restu Anda merupakan hadiah yang paling berharga bagi kami. Namun, jika ingin memberikan tanda kasih, dapat dikirim melalui:</p>
+    <div class="location">
+      <p>🏦 Bank Jateng 311 808 1217</p>
+      <p>🏦 BRI 6016 0103 5972 536</p>
+      <p>🏦 BCA 816 527 0220</p>
+      <p>📱 DANA 083 843 244 044</p>
+    </div>
+    <button class="btn" onclick="nextSection('penutup')">Lanjut</button>
+  </section>
+
+  <section class="section" id="penutup">
+    <h2 class="subtitle">Terima Kasih</h2>
+    <p>Terima kasih atas doa dan restu yang diberikan. Semoga kita semua senantiasa diberkahi kebahagiaan dan cinta yang tulus.</p>
+    <p style="margin-top:15px;">Dengan cinta,<br><strong>Lily & Wahyu</strong></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Lily & Wahyu | Dibuat dengan ❤️ oleh keluarga dan sahabat</p>
+  </footer>
+
+  <audio id="bgm" src="musik.mp3" autoplay loop></audio>
 
   <script>
     function nextSection(nextId) {
@@ -233,5 +299,32 @@
       document.getElementById(nextId).classList.add('active');
     }
   </script>
+
+  <!-- Bagian Form Ucapan -->
+  <section id="ucapan" style="background:#fffaf8; padding:40px 20px; text-align:center; font-family:'Poppins', sans-serif;">
+    <h2 style="font-family:'Playfair Display', serif; font-size:24px; margin-bottom:10px; color:#333;">
+      Kirim Ucapan Selamat 💌
+    </h2>
+    <p style="font-size:14px; color:#555; margin-bottom:30px;">
+      Silakan tuliskan doa dan ucapan terbaik untuk kami
+    </p>
+
+    <form action="https://formspree.io/f/mblpdlwz" method="POST" style="max-width:400px; margin:0 auto; text-align:left;">
+      <label for="nama" style="font-size:14px; color:#444;">Nama</label>
+      <input type="text" id="nama" name="nama" required 
+        style="width:100%; padding:10px; margin:8px 0 16px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+
+      <label for="pesan" style="font-size:14px; color:#444;">Ucapan</label>
+      <textarea id="pesan" name="pesan" rows="4" required
+        style="width:100%; padding:10px; margin:8px 0 16px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;"></textarea>
+
+      <button type="submit" 
+        style="background:#3c3b3b; color:#fff; border:none; padding:12px 20px; border-radius:10px; font-size:14px; cursor:pointer; width:100%; transition:0.3s;">
+        Kirim Ucapan
+      </button>
+    </form>
+
+    <p style="margin-top:20px; font-size:13px; color:#888;">Terima kasih atas doa dan ucapannya 💕</p>
+  </section>
 </body>
 </html>
